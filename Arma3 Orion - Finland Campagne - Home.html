@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ORION // Global Operations Network</title>
+  <link rel="stylesheet" href="Arma3 Orion - Finland Campagne - Storyboard.css">
+  <link rel="stylesheet" href="Arma3 Orion - Finland Campagne - Briefing.css">
+  <link rel="stylesheet" href="Arma3 Orion - Finland Campagne - Home.css">
+</head>
+<body>
+  <nav aria-label="ORION intranet navigation">
+    <span class="nav-brand">ORION INTERNATIONAL</span>
+    <a href="#theatres">GLOBAL OPERATIONS NETWORK</a>
+    <a href="Arma3 Orion - Finland Campagne - Portal.html">ZONE-21 DOSSIER &rarr;</a>
+  </nav>
+
+  <main class="home-shell" id="home-shell">
+    <header class="home-header">
+      <p class="home-eyebrow">GLOBAL OPERATIONS NETWORK</p>
+      <h1>ORION INTRANET</h1>
+      <p class="home-subtitle">OPERATOR CLEARANCE VERIFIED // SELECT AN ASSIGNED THEATRE</p>
+    </header>
+
+    <section id="theatres" class="home-theatres" aria-labelledby="theatre-directory">
+      <h2 class="op-title">THEATRE DIRECTORY</h2>
+      <h3 id="theatre-directory">Active contracts and restricted zones</h3>
+
+      <div class="locked-grid home-grid">
+        <a class="mission-card active" id="fimbulwinter" href="Arma3 Orion - Finland Campagne - Portal.html" aria-label="Open Zone-21 Fimbulwinter campaign portal">
+          <div class="num">ZONE-21 // FINLAND</div>
+          <h4>FIMBULWINTER</h4>
+          <div class="status">ACTIVE CONTRACT</div>
+          <div class="home-open">ACCESS THEATRE DOSSIER &rarr;</div>
+        </a>
+
+        <div class="locked-card" aria-disabled="true">
+          <span class="lock" aria-hidden="true">&#x1F512;</span>
+          <div class="num">ZONE-14</div>
+          <h4>STEEL DRAGON</h4>
+          <div class="status">CLASSIFIED &mdash; NO ACCESS</div>
+        </div>
+
+        <div class="locked-card" aria-disabled="true">
+          <span class="lock" aria-hidden="true">&#x1F512;</span>
+          <div class="num">ZONE-07</div>
+          <h4>CLASSIFIED</h4>
+          <div class="status">NO ACCESS</div>
+        </div>
+
+        <div class="locked-card" aria-disabled="true">
+          <span class="lock" aria-hidden="true">&#x1F512;</span>
+          <div class="num">ZONE-33</div>
+          <h4>CLASSIFIED</h4>
+          <div class="status">NO ACCESS</div>
+        </div>
+      </div>
+
+      <div class="home-transition phase" id="theatre-transition" aria-live="polite">
+        <div class="num">UPLINK STATUS</div>
+        <p>Opening Zone-21 theatre dossier...</p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const theatre = document.getElementById('fimbulwinter');
+    const shell = document.getElementById('home-shell');
+    const transition = document.getElementById('theatre-transition');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let opening = false;
+
+    theatre.addEventListener('click', (event) => {
+      event.preventDefault();
+      if (opening) return;
+      opening = true;
+      theatre.setAttribute('aria-disabled', 'true');
+      transition.classList.add('flash');
+      shell.classList.add('leaving');
+      window.setTimeout(() => {
+        window.location.href = theatre.href;
+      }, reduceMotion ? 0 : 450);
+    });
+  </script>
+</body>
+</html>

@@ -1,173 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ORION // Operation Fimbulwinter — Campaign Portal</title>
-<link rel="stylesheet" href="Arma3 Orion - Finland Campagne - Storyboard.css">
-<link rel="stylesheet" href="Arma3 Orion - Finland Campagne - Briefing.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ORION // Secure Uplink</title>
+  <link rel="stylesheet" href="Arma3 Orion - Finland Campagne - Storyboard.css">
+  <link rel="stylesheet" href="Arma3 Orion - Finland Campagne - Briefing.css">
 </head>
 <body>
-
-<div class="decrypt-overlay" id="decrypt-overlay" role="button" tabindex="0" aria-label="Skip decryption sequence">
-  <div class="decrypt-terminal" aria-live="polite">
-    <div class="decrypt-line">ORION SECURE UPLINK — CHANNEL 21</div>
-    <div class="decrypt-line">AUTHENTICATING OPERATOR...</div>
-    <div class="decrypt-line">CLEARANCE CONFIRMED — HADES PLATOON</div>
-    <div class="decrypt-line">LOADING THEATRE DOSSIER: ZONE-21</div>
-    <div class="decrypt-progress"><span></span></div>
-  </div>
-  <div class="decrypt-skip">CLICK TO SKIP</div>
-</div>
-
-<nav>
-  <a href="#summary">SUMMARY</a>
-  <a href="#theatre">THEATRE</a>
-  <a href="#world">WORLD</a>
-  <a href="#personnel">PERSONNEL</a>
-  <a href="#status">STATUS</a>
-  <a href="Arma3 Orion - Finland Campagne - Briefing - Op1 Signal Fire.html">OP 1 BRIEFING →</a>
-</nav>
-
-<section id="cover">
-  <div class="seclevel">SECURITY LEVEL 5</div>
-  <div class="zone">ZONE 21 // FINLAND</div>
-  <h1>OPERATION FIMBULWINTER</h1>
-  <div class="sub">ORION INTERNATIONAL — THEATRE ACTIVATION DOSSIER</div>
-  <blockquote class="reveal">"Corporate does not go where it is not paid to go.<br><br>Three days ago, the Republic of Finland's government made contact through back-channels neither NATO nor the EU could move fast enough to intercept. They did not ask for allies. They asked for a contractor.<br><br>— Corporate Liaison Office, Zone-21 Field Detachment"</blockquote>
-</section>
-
-<section id="summary">
-  <h2 class="op-title">EXECUTIVE SUMMARY</h2>
-  <h1 class="op-name">Fimbulwinter in sixty seconds</h1>
-  <div class="lore reveal">
-    <p>Six-operation campaign for Orion International, built on real X-Cam-Taunus terrain, running combat-first specops through a defensive proxy war in Finland against the Russian 44th Army Corps. This is not six one-off missions: what happens in one operation changes what you find in the next. Clearance for each operation opens only once the previous one is complete — command will not brief you on what comes after.</p>
-  </div>
-</section>
-
-<section id="theatre">
-  <h2 class="op-title">THEATRE OF OPERATIONS</h2>
-  <div class="cmdmap reveal">
-    <div class="cmdmap-img">
-      <img src="Arma3 Orion - Finland Campagne - Kaart Overview.png" alt="Overview map of Zone 21, Finland">
-      <a class="blip" href="Arma3 Orion - Finland Campagne - Briefing - Op1 Signal Fire.html" style="left:24%; top:69%;" aria-label="Open Operation 1 briefing">1</a>
-      <span class="blip locked" style="left:42%; top:51%;" title="CLASSIFIED — clearance pending" aria-label="CLASSIFIED — clearance pending">2</span>
-      <span class="blip locked" style="left:62%; top:33%;" title="CLASSIFIED — clearance pending" aria-label="CLASSIFIED — clearance pending">3</span>
-      <span class="blip locked" style="left:72%; top:64%;" title="CLASSIFIED — clearance pending" aria-label="CLASSIFIED — clearance pending">4</span>
-      <span class="blip locked" style="left:52%; top:78%;" title="CLASSIFIED — clearance pending" aria-label="CLASSIFIED — clearance pending">5</span>
-      <span class="blip locked" style="left:82%; top:25%;" title="CLASSIFIED — clearance pending" aria-label="CLASSIFIED — clearance pending">6</span>
+  <main class="decrypt-overlay" id="secure-uplink" role="button" tabindex="0" aria-label="Skip secure uplink sequence">
+    <div class="decrypt-terminal" aria-live="polite">
+      <div class="decrypt-line">ORION SECURE UPLINK &mdash; CHANNEL 21</div>
+      <div class="decrypt-line">AUTHENTICATING OPERATOR...</div>
+      <div class="decrypt-line">CLEARANCE CONFIRMED &mdash; HADES PLATOON</div>
+      <div class="decrypt-line">LOADING GLOBAL OPERATIONS NETWORK...</div>
+      <div class="decrypt-progress"><span></span></div>
     </div>
-  </div>
-  <p style="color:var(--dim); font-size:12px;">Alleen geklaarde operaties zijn actief. De rest van de kaart wordt zichtbaar naarmate de campagne vordert.</p>
-</section>
+    <div class="decrypt-skip">CLICK OR PRESS ANY KEY TO SKIP</div>
+  </main>
 
-<section id="world">
-  <h2 class="op-title">WORLD BRIEFING</h2>
-  <h1 class="op-name">Everything you need to know before Ahola</h1>
+  <script>
+    const uplink = document.getElementById('secure-uplink');
+    const lines = uplink.querySelectorAll('.decrypt-line');
+    const progress = uplink.querySelector('.decrypt-progress span');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let leaving = false;
 
-  <div class="lore reveal">
-    <div class="tab">ORION INTERNATIONAL</div>
-    <h4>A private army older than this war</h4>
-    <p>Founded during the Fall of Europe — a cascade of political and economic crises that left the continent's collective security structures too slow, too divided, to act as one. Individual states were on their own. Into that vacuum grew corporations like Orion: security contractors that became power brokers.</p>
-    <blockquote>"Founded during the Fall of Europe, Orion International emerged as a visionary proxy corporation led by CEO Lucien Stroud. Our mission: to defend against chaos where standard governments falter. Initially a small unit, we've rapidly expanded, becoming the world's foremost military corporation, surpassing even most superpowers in active service member count and redefining the private sector around the globe."</blockquote>
-    <p>What that makes you: not a national army, not a peacekeeping force. Orion answers to contracts and to Corporate's own interests, at the same time, on purpose.</p>
-    <blockquote>"Be a part of the world's first private army, not held back by financial or diplomatic ties, and carry out Corporate's agenda. For better or for worse…"</blockquote>
-  </div>
+    function continueToHome() {
+      if (leaving) return;
+      leaving = true;
+      window.location.href = 'Arma3 Orion - Finland Campagne - Home.html';
+    }
 
-  <div class="lore reveal">
-    <div class="tab">THE BREAKPOINT</div>
-    <h4>Finland is already NATO. So why call a PMC?</h4>
-    <p>Finland joined NATO in 2023, for real, in our world too — that part of the timeline hasn't changed. In Fimbulwinter, Helsinki does exactly what you'd expect: it invokes Article 5, through the front door, the same day the 44th Army Corps crosses the line.</p>
-    <p>The problem is speed. Article 5 is a process — consensus, escalation ladders, allied timelines. As part of the same Fall of Europe that grew Corporate in the first place, NATO's collective decision-making has quietly become unreliable: membership stands, but nobody can promise it moves fast enough. Finland doesn't wait to find out. It runs the official channel and a second, deniable one at the same time — Corporate, on the ground, hours after the first intelligence, weeks before any alliance response could plausibly land.</p>
-    <p>You are the second channel. That's the whole reason this campaign exists.</p>
-  </div>
+    function runUplink() {
+      if (reduceMotion) {
+        lines.forEach((line) => line.classList.add('show'));
+        progress.classList.add('load');
+        window.setTimeout(continueToHome, 250);
+        return;
+      }
 
-  <div class="lore reveal">
-    <div class="tab">WHY THIS WAR IS REAL, NOT GENERIC</div>
-    <h4>Karelia has done this before</h4>
-    <p><strong>Winter War, 1939-40.</strong> Nearly half a million Soviet troops crossed into Finland. Outnumbered five to one, Finnish troops used the terrain itself as a weapon — the motti tactic: encircle and cut off Soviet columns on the narrow forest roads, sometimes by felling trees across them. Soviet armour got stuck. Finnish troops on skis didn't. It took a massive Soviet artillery push in February 1940 to finally break the line.</p>
-    <p><strong>Karelia, 1944.</strong> Finland ceded roughly 40,000 square km of this exact ground after the follow-up war — the Karelian Isthmus, Ladoga Karelia, Border Karelia — and evacuated 420,000 people. Ahola sits in Finnish South Karelia: land the country has already lost once, and already taken back once. That history is why the villagers in this campaign react the way they do.</p>
-    <p><strong>Finnish total defense.</strong> Shelter capacity for over 80 percent of the population, conscription plus a reserve system that can mobilize roughly 700,000 people — close to 15 percent of the country — in an emergency. That's why Ahola has a shelter and an organized evacuation drill, and why the FDF column in Op 1 is built from reservists, not professional soldiers.</p>
-    <p><strong>2023 to now.</strong> NATO accession in 2023 doubled Russia's practical land border with the alliance overnight. Finland built 200km of border fencing. Russia answered by standing up a new formation in the Republic of Karelia around the Petrozavodsk garrison — the real, still-being-built 44th Army Corps. In our fiction, that build-up is deliberately fast-forwarded to fully operational. That's the one honest embellishment in this whole briefing — everything above it happened, or is happening, for real.</p>
-  </div>
+      lines.forEach((line, index) => {
+        window.setTimeout(() => line.classList.add('show'), 350 + (index * 550));
+      });
+      window.setTimeout(() => progress.classList.add('load'), 2600);
+      window.setTimeout(continueToHome, 3950);
+    }
 
-  <div class="lore reveal">
-    <div class="tab">THE CONTRACT</div>
-    <h4>What you're actually here for</h4>
-    <p><strong>Officially:</strong> Orion runs deniable specops the FDF can't run itself before a formal declaration of war — Finland keeps plausible deniability while buying real capability.</p>
-    <p><strong>Unofficially:</strong> Corporate sees a permanent foothold on NATO's northern flank as worth more than the invoice. This is transactional, not heroic.</p>
-    <p><strong>Why nobody's sending a resupply flight:</strong> Corporate's main strategic attention right now is Zone-14 // Steel Dragon, an older, better-funded theatre elsewhere on the board. Zone-21 is the new sideshow that has to prove it's worth the invoice before it gets treated like a priority. Nobody is coming to save the mission. You save it, or it doesn't happen.</p>
-    <div class="statgrid">
-      <div class="stat"><div class="k">ZONE</div><div class="v">21 — FIMBULWINTER</div></div>
-      <div class="stat"><div class="k">REGION</div><div class="v">Finnish South Karelia</div></div>
-      <div class="stat"><div class="k">ALIGNMENT</div><div class="v">Contested</div></div>
-      <div class="stat"><div class="k">CORPORATE INFLUENCE</div><div class="v">0%</div></div>
-      <div class="stat"><div class="k">THREAT RATING</div><div class="v">5 / 5</div></div>
-      <div class="stat"><div class="k">OPPOSING FORCE</div><div class="v">44th Army Corps (RUS)</div></div>
-    </div>
-  </div>
-
-  <div class="lore reveal">
-    <div class="tab">WHERE THIS SITS IN ORION'S WORLD</div>
-    <h4>Main campaign, not a one-off</h4>
-    <p>Fimbulwinter is Orion's main campaign for this unit: six operations, persistent consequences, one connected story. Zone-21 is a new addition to Orion's ongoing world, not a one-off scenario.</p>
-  </div>
-</section>
-
-<section id="personnel">
-  <h2 class="op-title">PERSONNEL</h2>
-  <h1 class="op-name">Faces at the start of the campaign</h1>
-  <div class="dossier-grid reveal">
-    <div class="dossier"><div class="photo">NO PHOTO<br>ON FILE</div><div class="info"><div class="name">President Elina Hakala <span style="color:var(--dim); font-size:11px;">(working title)</span></div><div class="role">Head of State, Republic of Finland</div><p>Signs the Orion contract in secret, within 72 hours of the first intelligence — while her own government invokes Article 5 through the front door at the same time.</p></div></div>
-    <div class="dossier"><div class="photo">NO PHOTO<br>ON FILE</div><div class="info"><div class="name">Maj. Gen. Antti Virtanen <span style="color:var(--dim); font-size:11px;">(working title)</span></div><div class="role">Commander, FDF South Karelia Brigade</div><p>Odin's official counterpart — and officially knows nothing about what Orion actually does in his sector.</p></div></div>
-    <div class="dossier"><div class="photo">NO PHOTO<br>ON FILE</div><div class="info"><div class="name">Col-Gen. Igor Chernov</div><div class="role">Commander, 44th Army Corps</div><p>Wants a fast, visible win before Western attention catches up to Karelia. Not stupid. Just out of time.</p></div></div>
-    <div class="dossier"><div class="photo">NO PHOTO<br>ON FILE</div><div class="info"><div class="name">Maj. Yelena Sorokina</div><div class="role">Info-Ops and Legal-Compliance Officer, 44th Corps</div><p>Wants hard proof that Orion or the West triggered the escalation, for use in international narrative warfare.</p></div></div>
-    <div class="dossier"><div class="photo">NO PHOTO<br>ON FILE</div><div class="info"><div class="name">Aino Lehto</div><div class="role">FDF Liaison Officer, Ahola</div><p>Speaks the language of both FDF command and the villagers — the connective tissue between the two.</p></div></div>
-    <div class="dossier"><div class="photo">NO PHOTO<br>ON FILE</div><div class="info"><div class="name">Väinö Ahola</div><div class="role">Village Elder, Ahola</div><p>Family has worked this ground for generations. Carries the historical weight of Karelia's earlier loss and return.</p></div></div>
-    <div class="dossier"><div class="photo">NO PHOTO<br>ON FILE</div><div class="info"><div class="name">The Korhonen Family</div><div class="role">Civilians, Ahola</div><p>A local family whose fate threads through the whole campaign.</p></div></div>
-    <div class="dossier"><div class="photo">NO PHOTO<br>ON FILE</div><div class="info"><div class="name">Marja Nieminen <span style="color:var(--dim); font-size:11px;">(optional)</span></div><div class="role">Freelance Journalist</div><p>Trying to document Orion's presence in Zone-21. Do not get photographed.</p></div></div>
-  </div>
-</section>
-
-<section id="status">
-  <h2 class="op-title">SITUATION ROOM</h2>
-  <h1 class="op-name">Campaign status</h1>
-  <p style="color:var(--dim); font-size:12px;">Deze sectie wordt na elke sessie bijgewerkt met het echte verloop van de campagne — geen scores, geen vooruitblik op wat nog moet komen.</p>
-  <div class="locked-grid reveal">
-    <a class="mission-card active" href="Arma3 Orion - Finland Campagne - Briefing - Op1 Signal Fire.html"><div class="num">OP 1</div><h4>SIGNAL FIRE</h4><div class="status">STATUS: NOT YET PLAYED — briefing ready</div></a>
-    <div class="locked-card"><div class="lock">🔒</div><div class="num">OP 2</div><h4>CLASSIFIED</h4><div class="status">PENDING — clearance follows Op 1</div></div>
-    <div class="locked-card"><div class="lock">🔒</div><div class="num">OP 3</div><h4>CLASSIFIED</h4><div class="status">PENDING — clearance follows Op 2</div></div>
-    <div class="locked-card"><div class="lock">🔒</div><div class="num">OP 4</div><h4>CLASSIFIED</h4><div class="status">PENDING — clearance follows Op 3</div></div>
-    <div class="locked-card"><div class="lock">🔒</div><div class="num">OP 5</div><h4>CLASSIFIED</h4><div class="status">PENDING — clearance follows Op 4</div></div>
-    <div class="locked-card"><div class="lock">🔒</div><div class="num">OP 6</div><h4>CLASSIFIED</h4><div class="status">PENDING — clearance follows Op 5</div></div>
-  </div>
-</section>
-
-<footer>ORION INTERNATIONAL — ZONE-21 // FIMBULWINTER — CAMPAIGN PORTAL</footer>
-
-<script>
-  const obs = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('show'); });
-  }, { threshold:0.2 });
-  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-
-  const overlay = document.querySelector('#decrypt-overlay');
-  const lines = overlay.querySelectorAll('.decrypt-line');
-  const progress = overlay.querySelector('.decrypt-progress span');
-  let overlayDone = false;
-  const finishDecrypt = () => {
-    if (overlayDone) return;
-    overlayDone = true;
-    overlay.classList.add('done');
-  };
-  lines.forEach((line, index) => setTimeout(() => line.classList.add('show'), 300 + index * 520));
-  setTimeout(() => progress.classList.add('load'), 2450);
-  setTimeout(finishDecrypt, 3850);
-  overlay.addEventListener('click', finishDecrypt);
-  overlay.addEventListener('keydown', event => {
-    if (event.key === 'Enter' || event.key === ' ') finishDecrypt();
-  });
-</script>
-
+    uplink.addEventListener('click', continueToHome);
+    window.addEventListener('keydown', continueToHome, { once: true });
+    runUplink();
+  </script>
 </body>
 </html>

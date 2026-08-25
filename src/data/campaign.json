@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "title": "Signal Fire",
+    "status": "NOT YET PLAYED - briefing ready",
+    "briefingUrl": "/orion-fimbulwinter/briefing-op1/",
+    "unlocked": true,
+    "mapX": 24,
+    "mapY": 69,
+    "aar": null
+  },
+  {
+    "id": 2,
+    "title": "CLASSIFIED",
+    "status": "PENDING - clearance follows Op 1",
+    "briefingUrl": "",
+    "unlocked": false,
+    "mapX": 42,
+    "mapY": 51,
+    "aar": null
+  },
+  {
+    "id": 3,
+    "title": "CLASSIFIED",
+    "status": "PENDING - clearance follows Op 2",
+    "briefingUrl": "",
+    "unlocked": false,
+    "mapX": 62,
+    "mapY": 33,
+    "aar": null
+  },
+  {
+    "id": 4,
+    "title": "CLASSIFIED",
+    "status": "PENDING - clearance follows Op 3",
+    "briefingUrl": "",
+    "unlocked": false,
+    "mapX": 72,
+    "mapY": 64,
+    "aar": null
+  },
+  {
+    "id": 5,
+    "title": "CLASSIFIED",
+    "status": "PENDING - clearance follows Op 4",
+    "briefingUrl": "",
+    "unlocked": false,
+    "mapX": 52,
+    "mapY": 78,
+    "aar": null
+  },
+  {
+    "id": 6,
+    "title": "CLASSIFIED",
+    "status": "PENDING - clearance follows Op 5",
+    "briefingUrl": "",
+    "unlocked": false,
+    "mapX": 82,
+    "mapY": 25,
+    "aar": null
+  }
+]

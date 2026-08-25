@@ -1,0 +1,22 @@
+---
+import Layout from '../layouts/Layout.astro';
+import campaign from '../data/campaign.json';
+import intercepts from '../data/comms.json';
+import '../styles/Comms.css';
+
+const isCleared = (relatedOp: number | null) => relatedOp === null || campaign.some((operation) => operation.id === relatedOp && operation.unlocked);
+const hasAar = (requiresAar: number | null) => requiresAar === null || campaign.some((operation) => operation.id === requiresAar && operation.aar !== null);
+---
+
+<Layout title="ORION // SIGINT / Intercepted Traffic" description="Intercepted Zone-21 radio traffic and clearance-gated signals intelligence." nav={[{ href: '/orion-fimbulwinter/home/', label: 'GLOBAL OPERATIONS' }, { href: '/orion-fimbulwinter/mission-control/', label: 'MISSION CONTROL' }, { href: '/orion-fimbulwinter/wiki/', label: 'COMPANY WIKI' }]} footer="ORION INTERNATIONAL - ZONE-21 // FIMBULWINTER - SIGINT ARCHIVE">
+  <section id="cover"><div class="seclevel">SIGNALS INTELLIGENCE</div><div class="zone">ZONE 21 // FINLAND</div><h1>SIGINT / INTERCEPTED TRAFFIC</h1><div class="sub">CLEARANCE-GATED RADIO MONITORING</div></section>
+  <section class="comms-log" aria-labelledby="intercepts-title">
+    <h2 id="intercepts-title" class="op-name">Intercept archive</h2><h3 class="op-title">RECOVERED TRANSMISSIONS</h3>
+    {intercepts.map((intercept) => <article class:list={['intercept', { classified: !isCleared(intercept.relatedOp) || !hasAar(intercept.requiresAar) }]}><div class="intercept-head"><span>{intercept.id} // {intercept.timestamp}</span><span>{intercept.source}</span></div><p>{isCleared(intercept.relatedOp) && hasAar(intercept.requiresAar) ? intercept.snippet : 'CLASSIFIED - PENDING CLEARANCE'}</p></article>)}
+  </section>
+  <section class="terminal-cta" aria-label="Field assignment">
+    <div><span>&gt; REQUEST FIELD ASSIGNMENT</span><p>Route a secure request to Orion field command.</p></div>
+    <!-- TODO: real Discord invite link -->
+    <a href="#">OPEN REQUEST CHANNEL -&gt;</a>
+  </section>
+</Layout>

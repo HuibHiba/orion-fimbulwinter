@@ -1,0 +1,5 @@
+.home-shell{max-width:1000px;margin:0 auto;padding:0 20px 70px;transition:opacity .45s ease;}
+.home-header{min-height:38vh;display:flex;flex-direction:column;justify-content:center;border-bottom:3px solid var(--red);padding:58px 0 44px;}
+.home-eyebrow{color:#b6bcae;font-size:11px;letter-spacing:4px;margin:0 0 8px;}.home-header h1{color:var(--ink);font-size:var(--font-h1);letter-spacing:4px;line-height:1.1;margin:0;}.home-subtitle{color:var(--amber);font-size:12px;letter-spacing:2px;margin:16px 0 0;}
+.home-theatres{padding:50px 0 0;}.home-theatres h3{color:var(--ink);font-size:var(--font-h2);margin:0 0 20px;}.home-grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));}.home-grid .mission-card.active .num{font-size:13px;font-weight:bold;color:var(--ink);border-bottom:1px solid var(--olive);padding-bottom:12px;margin-bottom:10px;}.home-open{color:var(--amber);font-size:11px;letter-spacing:1px;margin-top:24px;}
+@media (max-width:600px){.home-header h1{font-size:32px;}.home-eyebrow{letter-spacing:2px;}}

@@ -1,0 +1,56 @@
+---
+import Layout from '../layouts/Layout.astro';
+import '../styles/Briefing.css';
+---
+
+<Layout title="ORION // OP 1: Signal Fire - Briefing" description="Field briefing for Operation Signal Fire in the Ahola sector, Zone-21 Finland." nav={[{ href: '/orion-fimbulwinter/mission-control/', label: '<- MISSION CONTROL' }, { href: '#situation', label: 'SITUATION' }, { href: '#mission', label: 'MISSION' }, { href: '#cmdmap', label: 'MAP' }, { href: '#execution', label: 'EXECUTION' }, { href: '#roe', label: 'ROE' }, { href: '#support', label: 'SUPPORT' }]} footer="ORION INTERNATIONAL - ZONE-21 // FIMBULWINTER - OP 1: SIGNAL FIRE - BRIEFING" decryptLines={['ORION SECURE UPLINK - CHANNEL 21', 'AUTHENTICATING OPERATOR...', 'CLEARANCE CONFIRMED - FIELD COMMAND', 'DECRYPTING DOSSIER: OPERATION SIGNAL FIRE']}>
+  <div class="briefing-actions"><button class="print-opord" type="button">PRINT OPORD</button></div>
+  <section id="situation" class="briefing-section"><h1 class="op-name">SITUATION</h1><h2 class="op-title">OPERATION SIGNAL FIRE</h2><div class="reveal"><p class="reveal decrypt-scroll">Six hours ago, elements of the Russian 44th Army Corps crossed into Southern Karelia. Ahola - a border village of a few hundred people, on ground Finland has lost and retaken twice before - is directly in their path. Article 5 has been invoked. It is also, at this hour, still a committee.</p><div class="annotated"><p class="reveal decrypt-scroll">Forward observer teams are already positioned to call for fire: one on high ground with a laser designator, a second at a radio post along the tree line north of the village. <span class="intel-source">[SOURCE: FDF RECON - RELIABILITY B-2]</span></p><aside class="margin-note note-a">watch the tree line</aside></div><div class="annotated"><p class="reveal decrypt-scroll">A command post holds mortar stock earmarked for Ahola. <span class="intel-source">[SOURCE: ORION SIGINT - RELIABILITY A-1]</span> <span class="intel-warning">UNCONFIRMED - FIELD VERIFICATION REQUIRED</span></p><aside class="margin-note note-b">do not trust a quiet relay</aside></div><p class="reveal decrypt-scroll">Orion International has been contracted directly, outside FDF command, to strip the 44th of its eyes and its opening barrage before the evacuation starts moving.</p></div></section>
+  <section id="mission" class="briefing-section"><h2 class="op-name">MISSION</h2><h3 class="op-title">TASKING</h3><div class="intel reveal"><div class="head">FIELD COMMAND DIRECTIVE</div><p class="reveal decrypt-scroll">Orion elements will locate and destroy the Russian forward observer positions overlooking Ahola and neutralise the command post holding the mortar stock earmarked for the village.</p><p class="reveal decrypt-scroll">Once Ahola's evacuation begins, Orion will escort the FDF column to the egress road and conduct a fighting withdrawal until the column is clear.</p></div></section>
+  <section id="cmdmap"><h2 class="op-name">TACTICAL OVERVIEW</h2><h3 class="op-title">FIELD NAVIGATION</h3><div class="cmdmap reveal"><div class="cmdmap-img"><div class="map-stage"><img src="/orion-fimbulwinter/images/Kaart%20Op1.png" alt="Operation Signal Fire tactical map of the Ahola sector" width="1136" height="1136" /><button class="blip locked" type="button" style="left:27%; top:16%;" data-phase="1" data-target="#execution-phase-1" aria-label="Go to Phase 1" aria-hidden="true" tabindex="-1">1</button><button class="blip locked" type="button" style="left:70.5%; top:57.5%;" data-phase="2" data-target="#execution-phase-2" aria-label="Go to Phase 2" aria-hidden="true" tabindex="-1">2</button><button class="blip locked" type="button" style="left:44%; top:55%;" data-phase="3" data-target="#execution-phase-3" aria-label="Go to Phase 3" aria-hidden="true" tabindex="-1">3</button><button class="blip locked" type="button" style="left:41.5%; top:76.5%;" data-phase="4" data-target="#execution-phase-4" aria-label="Go to Phase 4" aria-hidden="true" tabindex="-1">4</button></div></div></div></section>
+  <section id="execution" class="briefing-section"><h2 class="op-name">EXECUTION</h2><h3 class="op-title">ORDER OF BATTLE</h3><div><div class="phase reveal" id="execution-phase-1" data-phase="1"><label class="phase-check"><input type="checkbox" data-checklist-phase="1" /><span>PHASE COMPLETE</span></label><div class="num">PHASE 1 / 4</div><h3>Blind the Eyes</h3><div class="annotated"><p class="reveal decrypt-scroll">Locate and destroy the two confirmed forward observer positions. Neither position is to be left active.</p><aside class="margin-note note-c">no second pass</aside></div></div><div class="phase reveal" id="execution-phase-2" data-phase="2"><label class="phase-check"><input type="checkbox" data-checklist-phase="2" /><span>PHASE COMPLETE</span></label><div class="num">PHASE 2 / 4</div><h3>Silence the Guns</h3><p class="reveal decrypt-scroll">Locate the command post holding the mortar stock and destroy the munitions on site.</p></div><div class="phase reveal" id="execution-phase-3" data-phase="3"><label class="phase-check"><input type="checkbox" data-checklist-phase="3" /><span>PHASE COMPLETE</span></label><div class="num">PHASE 3 / 4</div><h3>Move the Column</h3><div class="annotated"><p class="reveal decrypt-scroll">Escort the FDF evacuation column to the designated egress road. Orion provides the combat power.</p><aside class="margin-note note-d">keep them moving</aside></div></div><div class="phase climax reveal" id="execution-phase-4" data-phase="4"><label class="phase-check"><input type="checkbox" data-checklist-phase="4" /><span>PHASE COMPLETE</span></label><div class="num">PHASE 4 / 4</div><h3>Fighting Withdrawal</h3><p class="reveal decrypt-scroll">Hold the egress road open as Russian reconnaissance and a light QRF move to intercept.</p></div></div></section>
+  <section id="roe" class="briefing-section"><h2 class="op-name">RULES OF ENGAGEMENT</h2><h3 class="op-title">FIELD RESTRICTIONS</h3><div class="intel reveal"><div class="head">ROE // EFFECTIVE IMMEDIATELY</div><div class="annotated"><ul class="reveal decrypt-scroll"><li>Any 44th Army Corps element confirmed at a designated objective is hostile.</li><li>Lethal force is authorised against confirmed hostile positions without further clearance.</li><li>FDF reservists and Ahola civilians are not combatants.</li><li>Orion is not officially present. Do not get photographed.</li></ul><aside class="margin-note note-e">copy that</aside></div></div></section>
+  <section id="support" class="briefing-section"><h2 class="op-name">SUPPORT</h2><h3 class="op-title">AVAILABLE ASSETS</h3><div><div class="phase reveal"><div class="num">AIR SUPPORT</div><h3>Valkyrie</h3><p class="reveal decrypt-scroll">Valkyrie provides limited CAS and overwatch capability in this sector. Request through mission command.</p></div></div></section>
+  <section id="operator-note" class="operator-note reveal" aria-label="Operator's note"><div class="head">OFF-RECORD // FOR THE PERSON WHO READS TO THE END</div><p>Ahola has survived two borders moving over it. The people there will remember who kept the road open, even if no report is ever allowed to say it.</p><p>Bring them out. Let the paperwork catch up later.</p></section>
+  <script>
+    const unlockPhase = (phase: string) => {
+      const blip = document.querySelector<HTMLButtonElement>(`.blip[data-phase="${phase}"]`);
+      if (!blip) return;
+      blip.classList.remove('locked');
+      blip.removeAttribute('aria-hidden');
+      blip.removeAttribute('tabindex');
+    };
+    document.querySelectorAll('.blip').forEach((blip) => blip.addEventListener('click', () => {
+      const target = document.querySelector(blip.dataset.target || '');
+      if (!(target instanceof HTMLElement) || blip.classList.contains('locked')) return;
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      target.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'center' });
+      target.classList.remove('flash');
+      void target.offsetWidth;
+      target.classList.add('flash');
+      window.setTimeout(() => target.classList.remove('flash'), 1500);
+    }));
+    const phaseObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting || !(entry.target instanceof HTMLElement)) return;
+        const phase = entry.target.dataset.phase;
+        if (!phase) return;
+        unlockPhase(phase);
+      });
+    }, { threshold: 0.45 });
+    document.querySelectorAll<HTMLElement>('.phase[data-phase]').forEach((phase) => phaseObserver.observe(phase));
+
+    const checklistKey = 'orion-checklist-op1';
+    const completePhases = new Set<number>(JSON.parse(localStorage.getItem(checklistKey) || '[]'));
+    document.querySelectorAll<HTMLInputElement>('[data-checklist-phase]').forEach((input) => {
+      const phase = Number(input.dataset.checklistPhase);
+      input.checked = completePhases.has(phase);
+      input.addEventListener('change', () => {
+        input.checked ? completePhases.add(phase) : completePhases.delete(phase);
+        localStorage.setItem(checklistKey, JSON.stringify([...completePhases]));
+      });
+    });
+
+    document.querySelector('.print-opord')?.addEventListener('click', () => window.print());
+  </script>
+</Layout>

@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Layout.astro';
+import '../styles/Home.css';
+---
+
+<Layout title="ORION // Global Operations Network" description="ORION International theatre directory and Operation Fimbulwinter campaign access." nav={[{ href: '#theatres', label: 'GLOBAL OPERATIONS NETWORK' }, { href: '/orion-fimbulwinter/mission-control/', label: 'ZONE-21 MISSION CONTROL ->' }, { href: '/orion-fimbulwinter/comms/', label: 'SIGINT / COMMS' }, { href: '/orion-fimbulwinter/wiki/', label: 'COMPANY WIKI' }]}>
+  <div class="home-shell" id="home-shell">
+    <header class="home-header">
+      <p class="home-eyebrow">GLOBAL OPERATIONS NETWORK</p>
+      <h1>ORION INTRANET</h1>
+      <p class="home-subtitle">OPERATOR CLEARANCE VERIFIED // SELECT AN ASSIGNED THEATRE</p>
+    </header>
+    <section id="theatres" class="home-theatres" aria-labelledby="theatre-directory">
+      <h2 class="op-title">THEATRE DIRECTORY</h2>
+      <h3 id="theatre-directory">Active contracts and restricted zones</h3>
+      <div class="locked-grid home-grid">
+        <a class="mission-card active" id="fimbulwinter" href="/orion-fimbulwinter/mission-control/">
+          <div class="num">ZONE-21 // FINLAND</div><h4>FIMBULWINTER</h4><div class="status">ACTIVE CONTRACT</div><div class="home-open">ACCESS MISSION CONTROL -></div>
+        </a>
+        <div class="locked-card"><span class="lock" aria-hidden="true">LOCKED</span><div class="num">ZONE-14</div><h4>STEEL DRAGON</h4><div class="status">CLASSIFIED - NO ACCESS</div></div>
+        <div class="locked-card"><span class="lock" aria-hidden="true">LOCKED</span><div class="num">ZONE-07</div><h4>CLASSIFIED</h4><div class="status">NO ACCESS</div></div>
+        <div class="locked-card"><span class="lock" aria-hidden="true">LOCKED</span><div class="num">ZONE-33</div><h4>CLASSIFIED</h4><div class="status">NO ACCESS</div></div>
+      </div>
+    </section>
+  </div>
+</Layout>

@@ -1,0 +1,64 @@
+---
+import Layout from '../layouts/Layout.astro';
+import campaign from '../data/campaign.json';
+import worldstate from '../data/worldstate.json';
+import { Image } from 'astro:assets';
+import overviewMap from '../assets/campaign-overview-map.png';
+import '../styles/Intel.css';
+import '../styles/MissionControl.css';
+
+const unlockedOperations = campaign.filter((operation) => operation.unlocked);
+const completedOperations = campaign.filter((operation) => operation.aar !== null);
+---
+
+<Layout title="ORION // Fimbulwinter Mission Control" description="Live mission status, clearance directory, and campaign record for Operation Fimbulwinter." nav={[{ href: '/orion-fimbulwinter/home/', label: 'GLOBAL OPERATIONS' }, { href: '#missions', label: 'MISSION CONTROL' }, { href: '/orion-fimbulwinter/comms/', label: 'SIGINT / COMMS' }, { href: '/orion-fimbulwinter/wiki/', label: 'COMPANY WIKI' }]} footer="ORION INTERNATIONAL - ZONE-21 // FIMBULWINTER - MISSION CONTROL">
+  <section id="cover">
+    <div class="seclevel">SECURITY LEVEL 2</div><div class="zone">ZONE 21 // FINLAND</div><h1>MISSION CONTROL</h1><div class="sub">OPERATION FIMBULWINTER - CAMPAIGN STATUS</div>
+  </section>
+  <section id="summary">
+    <h2 class="op-name">Fimbulwinter in sixty seconds</h2><h3 class="op-title">EXECUTIVE SUMMARY</h3>
+    <div class="lore reveal"><p>Six operations for Orion International on X-Cam-Taunus terrain, following a defensive proxy war in Finland against the Russian 44th Army Corps. Each operation changes the next. Command releases only the current tasking; future operation details remain classified until clearance is earned.</p></div>
+  </section>
+  <section id="missions">
+    <h2 class="op-name">Current clearance</h2><h3 class="op-title">OPERATION DIRECTORY</h3>
+    <div class="locked-grid">
+      {campaign.map((operation) => operation.unlocked ? (
+        <a class="mission-card active" href={operation.briefingUrl}><div class="num">OP {operation.id}</div><h4>{operation.title.toUpperCase()}</h4><div class="status">STATUS: {operation.status}</div></a>
+      ) : (
+        <div class="locked-card"><div class="lock" aria-hidden="true">LOCKED</div><div class="num">OP {operation.id}</div><h4>{operation.title}</h4><div class="status">{operation.status}</div></div>
+      ))}
+    </div>
+  </section>
+  <section id="dashboard">
+    <h2 class="op-name">Zone-21 status</h2><h3 class="op-title">STRATEGIC DASHBOARD</h3>
+    <div class="strategic-dashboard"><div class="intel"><div class="head">ZONE-21 STRATEGIC DASHBOARD</div><div class="statgrid"><div class="stat"><div class="k">ALIGNMENT</div><div class="v">{worldstate.alignment}</div></div><div class="stat"><div class="k">CORPORATE INFLUENCE</div><div class="v">{worldstate.corporateInfluence}%</div></div><div class="stat"><div class="k">THREAT RATING</div><div class="v">{worldstate.threatRating}</div></div><div class="stat"><div class="k">OPPOSING FORCE</div><div class="v">{worldstate.opposingForce}</div></div><div class="stat"><div class="k">REGION</div><div class="v">{worldstate.region}</div></div></div>{worldstate.nextSessionDate && <div class="countdown" data-countdown={worldstate.nextSessionDate}>T-MINUS: CALCULATING</div>}</div></div>
+  </section>
+  <section id="campaign-map">
+    <h2 class="op-name">Operational picture</h2><h3 class="op-title">FOG-OF-WAR CAMPAIGN MAP</h3>
+    <div class="campaign-map"><div class="campaign-map-inner"><Image src={overviewMap} alt="Zone-21 campaign overview map" widths={[720, 1000]} sizes="(max-width: 760px) 100vw, 960px" format="webp" quality={70} />{unlockedOperations.map((operation) => <a class="campaign-marker" href={operation.briefingUrl} style={`left:${operation.mapX}%;top:${operation.mapY}%;`} aria-label={`Open Operation ${operation.id}: ${operation.title}`}>{operation.id}</a>)}</div></div>
+  </section>
+  <section id="situation-room">
+    <h2 class="op-name">Campaign status</h2><h3 class="op-title">SITUATION ROOM</h3>
+    <div class="intel reveal"><div class="head">LIVE CAMPAIGN RECORD</div><p>This section is updated after every session with the actual course of the campaign - no scores, no preview of what's still to come.</p>
+      <div class="sitrep-grid">{campaign.map((operation) => <article class="sitrep"><div class="sitrep-head">OP {operation.id} // {operation.title.toUpperCase()}</div><p>{operation.status}</p></article>)}{completedOperations.map((operation) => <article class="sitrep aar-card"><div class="sitrep-head">AFTER-ACTION REPORT // OP {operation.id}</div><p><strong>OUTCOME:</strong> {operation.aar?.outcome}</p><p><strong>LOSSES:</strong> {operation.aar?.losses}</p><p>{operation.aar?.summary}</p></article>)}</div>
+    </div>
+  </section>
+  <section class="terminal-cta" aria-label="Field assignment">
+    <div><span>&gt; REQUEST FIELD ASSIGNMENT</span><p>Route a secure request to Orion field command.</p></div>
+    <!-- TODO: real Discord invite link -->
+    <a href="#">OPEN REQUEST CHANNEL -&gt;</a>
+  </section>
+  {worldstate.nextSessionDate && <script>
+    const countdown = document.querySelector<HTMLElement>('[data-countdown]');
+    const target = countdown?.dataset.countdown ? new Date(countdown.dataset.countdown) : null;
+    const updateCountdown = () => {
+      if (!countdown || !target) return;
+      const remaining = target.getTime() - Date.now();
+      if (remaining <= 0) { countdown.textContent = 'T-MINUS: SESSION WINDOW OPEN'; return; }
+      const hours = Math.floor(remaining / 3600000);
+      countdown.textContent = `T-MINUS: ${Math.floor(hours / 24)}D ${hours % 24}H`;
+    };
+    updateCountdown();
+    window.setInterval(updateCountdown, 60000);
+  </script>}
+</Layout>

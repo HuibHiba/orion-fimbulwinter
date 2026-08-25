@@ -1,0 +1,76 @@
+---
+import '../styles/Storyboard.css';
+import DecryptOverlay from '../components/DecryptOverlay.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  nav?: { href: string; label: string }[];
+  footer?: string;
+  decryptLines?: string[];
+  redirectUrl?: string;
+  redirectOnComplete?: boolean;
+}
+
+const { title, description, nav = [], footer, decryptLines, redirectUrl, redirectOnComplete } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0d1210" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body>
+    {decryptLines && <DecryptOverlay lines={decryptLines} redirectUrl={redirectUrl} redirectOnComplete={redirectOnComplete} />}
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    {nav.length > 0 && <nav aria-label="ORION navigation">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">[ MENU ]</button>
+      <div class="nav-links" id="nav-links">{nav.map((item) => <a href={item.href}>{item.label}</a>)}</div>
+      <div class="nav-status" aria-label="System status"><span data-zulu-time>ZULU --:--</span><span>UPLINK: STABLE</span></div>
+    </nav>}
+    <main id="main-content"><slot /></main>
+    {footer && <footer>{footer}</footer>}
+    <script>
+      const revealElements = document.querySelectorAll('.reveal');
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        revealElements.forEach((element) => element.classList.add('show'));
+      } else {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add('show');
+          });
+        }, { threshold: 0.2 });
+        revealElements.forEach((element) => observer.observe(element));
+      }
+
+      const updateZulu = () => {
+        const formatter = new Intl.DateTimeFormat('en-GB', { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'UTC' });
+        document.querySelectorAll('[data-zulu-time]').forEach((element) => element.textContent = `ZULU ${formatter.format(new Date())}`);
+      };
+      updateZulu();
+      window.setInterval(updateZulu, 60000);
+
+      const toggle = document.querySelector('.nav-toggle');
+      const nav = document.querySelector('nav');
+      if (toggle instanceof HTMLButtonElement && nav instanceof HTMLElement) {
+        toggle.addEventListener('click', () => {
+          const expanded = toggle.getAttribute('aria-expanded') === 'true';
+          toggle.setAttribute('aria-expanded', String(!expanded));
+          nav.classList.toggle('menu-open', !expanded);
+        });
+      }
+
+      document.querySelectorAll('.locked-card').forEach((card) => card.addEventListener('click', () => {
+        card.classList.remove('access-denied');
+        void (card as HTMLElement).offsetWidth;
+        card.classList.add('access-denied');
+      }));
+    </script>
+  </body>
+</html>

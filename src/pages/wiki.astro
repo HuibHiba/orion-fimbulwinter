@@ -1,0 +1,71 @@
+---
+import Layout from '../layouts/Layout.astro';
+import campaign from '../data/campaign.json';
+import '../styles/Intel.css';
+
+const dossiers = [
+  ['President Elina Hakala', 'Head of State, Republic of Finland', 'Signs the Orion contract in secret while her government invokes Article 5 through the front door.'],
+  ['Maj. Gen. Antti Virtanen', 'Commander, FDF South Karelia Brigade', "Odin's official counterpart - and officially knows nothing about what Orion actually does in his sector."],
+  ['Col-Gen. Igor Chernov', 'Commander, 44th Army Corps', 'Wants a fast, visible win before Western attention catches up to Karelia. Not stupid. Just out of time.'],
+  ['Maj. Yelena Sorokina', 'Info-Ops and Legal-Compliance Officer, 44th Corps', 'Wants hard proof that Orion or the West triggered the escalation, for international narrative warfare.'],
+  ['Aino Lehto', 'FDF Liaison Officer, Ahola', 'Speaks the language of both FDF command and the villagers - the connective tissue between the two.'],
+  ['Vaino Ahola', 'Village Elder, Ahola', "Family has worked this ground for generations. Carries the historical weight of Karelia's earlier loss and return."],
+  ['The Korhonen Family', 'Civilians, Ahola', 'A local family whose fate threads through the whole campaign.'],
+  ['Marja Nieminen', 'Freelance Journalist', 'Trying to document Orion\'s presence in Zone-21. Do not get photographed.']
+];
+---
+
+<Layout title="ORION // Company Wiki" description="ORION International intelligence archive, personnel dossiers, and Fimbulwinter campaign context." nav={[{ href: '/orion-fimbulwinter/home/', label: 'GLOBAL OPERATIONS' }, { href: '/orion-fimbulwinter/mission-control/', label: 'MISSION CONTROL' }, { href: '/orion-fimbulwinter/comms/', label: 'SIGINT / COMMS' }, { href: '#orion', label: 'COMPANY WIKI' }]} footer="ORION INTERNATIONAL - ZONE-21 // FIMBULWINTER - COMPANY WIKI">
+  <section id="cover"><div class="seclevel">ORION KNOWLEDGE BASE</div><div class="zone">ZONE 21 // FINLAND</div><h1>COMPANY WIKI</h1><div class="sub">FREELY BROWSABLE INTELLIGENCE ARCHIVE</div></section>
+  <div class="wiki-content">
+    <section id="orion" class="intel-panel wiki-panel"><div class="panel-head"><div><span class="panel-index">INTEL 01</span><h2>ORION INTERNATIONAL</h2></div></div><button class="declassify" type="button">DECLASSIFY SECTION</button><div class="panel-content classified"><div class="tab">ORION INTERNATIONAL</div><h4>A private army older than this war</h4><p>Founded during the Fall of Europe - a cascade of political and economic crises that left the continent's collective security structures too slow and too divided to act as one. Into that vacuum grew corporations like Orion: security contractors that became power brokers.</p><p>Orion answers to contracts and to Corporate's own interests, at the same time, on purpose.</p></div></section>
+    <section id="breakpoint" class="intel-panel wiki-panel"><div class="panel-head"><div><span class="panel-index">INTEL 02</span><h2>THE BREAKPOINT</h2></div></div><button class="declassify" type="button">DECLASSIFY SECTION</button><div class="panel-content classified"><h4>Finland is already NATO. So why call a PMC?</h4><p>Finland invokes Article 5 the day the 44th Army Corps crosses the line. The problem is speed: consensus, escalation ladders, allied timelines. Helsinki runs the official channel and a second, deniable one at the same time - Corporate on the ground hours after the first intelligence.</p></div></section>
+    <section id="karelia" class="intel-panel wiki-panel"><div class="panel-head"><div><span class="panel-index">INTEL 03</span><h2>KARELIA 1939-44</h2></div></div><button class="declassify" type="button">DECLASSIFY SECTION</button><div class="panel-content classified"><h4>Karelia has done this before</h4><p>During the Winter War, Finnish troops used terrain and the motti tactic to cut off Soviet columns on narrow forest roads. In 1944 Finland ceded roughly 40,000 square km of this ground and evacuated 420,000 people. That history is why Ahola reacts as it does.</p><p>In the campaign's fiction, Russia's real 44th Army Corps build-up around Petrozavodsk is fast-forwarded to fully operational.</p></div></section>
+    <section id="contract" class="intel-panel wiki-panel"><div class="panel-head"><div><span class="panel-index">INTEL 04</span><h2>THE CONTRACT</h2></div></div><button class="declassify" type="button">DECLASSIFY SECTION</button><div class="panel-content classified"><h4>What you're actually here for</h4><p><strong>Officially:</strong> Orion runs deniable specops before a formal declaration of war. <strong>Unofficially:</strong> Corporate sees a permanent foothold on NATO's northern flank as worth more than the invoice.</p><div class="statgrid"><div class="stat"><div class="k">ZONE</div><div class="v">21 - FIMBULWINTER</div></div><div class="stat"><div class="k">REGION</div><div class="v">Finnish South Karelia</div></div><div class="stat"><div class="k">THREAT</div><div class="v">5 / 5</div></div></div></div></section>
+    <section id="context" class="intel-panel wiki-panel"><div class="panel-head"><div><span class="panel-index">INTEL 05</span><h2>CAMPAIGN CONTEXT</h2></div></div><button class="declassify" type="button">DECLASSIFY SECTION</button><div class="panel-content classified"><h4>Main campaign, not a one-off</h4><p>Fimbulwinter is Orion's main campaign: six operations, persistent consequences, one connected story. Zone-21 is a new addition to Orion's ongoing world, not a standalone scenario.</p></div></section>
+    <section id="personnel" class="intel-panel wiki-panel"><div class="panel-head"><div><span class="panel-index">INTEL 06</span><h2>PERSONNEL DOSSIERS</h2></div></div><p class="panel-intro">Faces at the start of the campaign</p><div class="dossier-grid">{dossiers.map(([name, role, description]) => <article class="dossier classified"><div class="photo">NO PHOTO<br />ON FILE</div><div class="info"><div class="name">{name}</div><div class="role">{role}</div><button class="mini-declassify" type="button">DECLASSIFY</button><p>{description}</p></div></article>)}</div></section>
+    <section id="situation" class="intel-panel wiki-panel"><div class="panel-head"><div><span class="panel-index">INTEL 07</span><h2>SITUATION ROOM</h2></div></div><button class="declassify" type="button">DECLASSIFY SECTION</button><div class="panel-content classified"><h4>Campaign status</h4><p>This section is updated after every session with the actual course of the campaign.</p><ul>{campaign.map((operation) => <li>OP {operation.id}: {operation.status}</li>)}</ul></div></section>
+  </div>
+  <section class="terminal-cta" aria-label="Field assignment">
+    <div><span>&gt; REQUEST FIELD ASSIGNMENT</span><p>Route a secure request to Orion field command.</p></div>
+    <!-- TODO: real Discord invite link -->
+    <a href="#">OPEN REQUEST CHANNEL -&gt;</a>
+  </section>
+  <script>
+    const storageKey = 'orion-declassified';
+    const restored = new Set(JSON.parse(localStorage.getItem(storageKey) || '[]'));
+    const reveal = (target, button, key) => {
+      target?.classList.add('declassifying');
+      target?.classList.remove('classified');
+      if (button instanceof HTMLButtonElement) {
+        button.textContent = 'SECTION DECLASSIFIED';
+        button.disabled = true;
+      }
+      restored.add(key);
+      localStorage.setItem(storageKey, JSON.stringify([...restored]));
+    };
+    document.querySelectorAll('.intel-panel').forEach((panel) => {
+      const key = `panel:${panel.id}`;
+      if (!restored.has(key)) return;
+      const content = panel.querySelector('.panel-content');
+      const button = panel.querySelector('.declassify');
+      content?.classList.remove('classified');
+      if (button instanceof HTMLButtonElement) { button.textContent = 'SECTION DECLASSIFIED'; button.disabled = true; }
+    });
+    document.querySelectorAll('.dossier').forEach((dossier, index) => {
+      const key = `dossier:${index}`;
+      if (!restored.has(key)) return;
+      dossier.classList.remove('classified');
+      const button = dossier.querySelector('.mini-declassify');
+      if (button instanceof HTMLButtonElement) { button.textContent = 'DECLASSIFIED'; button.disabled = true; }
+    });
+    document.querySelectorAll('.declassify').forEach((button) => button.addEventListener('click', () => {
+      const panel = button.closest('.intel-panel');
+      reveal(panel?.querySelector('.panel-content'), button, `panel:${panel?.id}`);
+    }));
+    document.querySelectorAll('.mini-declassify').forEach((button, index) => button.addEventListener('click', () => {
+      const dossier = button.closest('.dossier');
+      reveal(dossier, button, `dossier:${index}`);
+    }));
+  </script>
+</Layout>

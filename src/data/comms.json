@@ -1,0 +1,34 @@
+[
+  {
+    "id": "SIG-021-01",
+    "timestamp": "ZONE-21 // D-3",
+    "source": "UNKNOWN FREQ 118.4",
+    "snippet": "...the road lights are still on at Ahola. Tell your men not to mistake a quiet village for an empty one. Corporate weather reports remain optimistic.",
+    "relatedOp": 1,
+    "requiresAar": null
+  },
+  {
+    "id": "SIG-021-02",
+    "timestamp": "ZONE-21 // D-2",
+    "source": "44TH CORPS RELAY",
+    "snippet": "Traffic partially recovered. A forward element requests a revised timetable after an unidentified contractor presence is reported near the border.",
+    "relatedOp": 2,
+    "requiresAar": null
+  },
+  {
+    "id": "SIG-021-03",
+    "timestamp": "ZONE-21 // D-1",
+    "source": "CIVIL DEFENCE BAND",
+    "snippet": "The line repeats a weather warning in Finnish, then drops into carrier noise. No official evacuation notice has been issued.",
+    "relatedOp": null,
+    "requiresAar": null
+  },
+  {
+    "id": "SIG-021-04",
+    "timestamp": "ZONE-21 // POST-OP",
+    "source": "AHOLA CIVIL DEFENCE BAND",
+    "snippet": "Aftermath reports from Ahola remain fragmented. The road is open for now, and nobody on this frequency is willing to say why.",
+    "relatedOp": 1,
+    "requiresAar": 1
+  }
+]

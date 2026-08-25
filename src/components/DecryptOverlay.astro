@@ -1,0 +1,62 @@
+---
+interface Props {
+  lines: string[];
+  redirectUrl?: string;
+  redirectOnComplete?: boolean;
+}
+
+const { lines, redirectUrl, redirectOnComplete = false } = Astro.props;
+---
+
+<div class="decrypt-overlay" id="decrypt-overlay" role="dialog" aria-modal="true" aria-labelledby="decrypt-title" tabindex="-1" data-redirect={redirectUrl} data-redirect-on-complete={redirectOnComplete}>
+  <div class="decrypt-terminal" aria-live="polite">
+    <h2 id="decrypt-title">SECURE UPLINK</h2>
+    {lines.map((line) => <div class="decrypt-line">{line}</div>)}
+    <div class="decrypt-progress"><span></span></div>
+  </div>
+  <div class="decrypt-skip">CLICK, ENTER OR ESC TO SKIP</div>
+</div>
+
+<script>
+  const overlay = document.querySelector('#decrypt-overlay');
+  if (overlay instanceof HTMLElement) {
+    const lines = overlay.querySelectorAll('.decrypt-line');
+    const progress = overlay.querySelector('.decrypt-progress span');
+    const redirectUrl = overlay.dataset.redirect;
+    const redirectOnComplete = overlay.dataset.redirectOnComplete === 'true';
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const priorFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    overlay.focus();
+    let done = false;
+    const finish = () => {
+      if (done) return;
+      done = true;
+      if (redirectUrl) window.location.href = redirectUrl;
+      else {
+        overlay.classList.add('done');
+        priorFocus?.focus();
+      }
+    };
+    lines.forEach((line, index) => window.setTimeout(() => line.classList.add('show'), reduceMotion ? 0 : 300 + index * 520));
+    window.setTimeout(() => progress?.classList.add('load'), reduceMotion ? 0 : 2450);
+    window.setTimeout(finish, redirectOnComplete && reduceMotion ? 250 : reduceMotion ? 0 : 3850);
+    overlay.addEventListener('click', finish);
+    overlay.addEventListener('keydown', (event) => {
+      if (event.key === ' ' || event.key === 'Spacebar') event.preventDefault();
+      if (event.key === 'Enter' || event.key === ' ' || event.key === 'Spacebar' || event.key === 'Escape') finish();
+    });
+  }
+</script>
+
+<style is:global>
+  .decrypt-overlay{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;background:#070b08;color:#9db396;font-family:var(--mono);cursor:pointer;overflow:hidden;transition:opacity .7s ease,visibility .7s ease;}
+  .decrypt-overlay::before{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(157,179,150,.045) 0,rgba(157,179,150,.045) 1px,transparent 1px,transparent 4px);animation:decrypt-flicker 5s infinite;}
+  .decrypt-overlay:focus-visible{outline:2px solid var(--amber);outline-offset:-8px;}
+  .decrypt-overlay.done{opacity:0;visibility:hidden;pointer-events:none;}
+  .decrypt-terminal{width:min(88vw,620px);border:1px solid var(--olive);background:rgba(13,18,16,.9);padding:26px;position:relative;box-shadow:0 0 42px rgba(74,83,64,.18);}
+  .decrypt-terminal h2{position:absolute;top:-10px;left:14px;margin:0;padding:2px 7px;background:var(--bg);color:var(--amber);font-size:10px;letter-spacing:2px;}
+  .decrypt-line{min-height:1.5em;font-size:13px;letter-spacing:1px;opacity:0;transform:translateX(-8px);transition:opacity .2s ease,transform .2s ease;}
+  .decrypt-line.show{opacity:1;transform:none;}.decrypt-line:first-of-type{color:var(--amber);}
+  .decrypt-progress{height:5px;margin-top:22px;border:1px solid var(--olive);background:#080c09;}.decrypt-progress span{display:block;width:0;height:100%;background:var(--amber);box-shadow:0 0 10px rgba(201,160,77,.65);transition:width 1.2s linear;}.decrypt-progress span.load{width:100%;}
+  .decrypt-skip{position:absolute;right:18px;bottom:15px;color:#b6bcae;font-size:10px;letter-spacing:2px;}@keyframes decrypt-flicker{0%,96%,100%{opacity:1}97%{opacity:.8}98%{opacity:1}}
+</style>

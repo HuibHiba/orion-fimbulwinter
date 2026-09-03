@@ -11,10 +11,10 @@
   },
   {
     "id": 2,
-    "title": "CLASSIFIED",
-    "status": "PENDING - clearance follows Op 1",
-    "briefingUrl": "",
-    "unlocked": false,
+    "title": "The Quiet Line",
+    "status": "NOT YET PLAYED - briefing ready",
+    "briefingUrl": "/orion-fimbulwinter/briefing-op2/",
+    "unlocked": true,
     "mapX": 42,
     "mapY": 51,
     "aar": null

@@ -1,0 +1,56 @@
+---
+import Layout from '../layouts/Layout.astro';
+import '../styles/Briefing.css';
+---
+
+<Layout title="ORION // OP 3: Ashes and Ink - Briefing" description="Field briefing for Operation Ashes and Ink - convoy ambush, Ahola sector, Zone-21 Finland." nav={[{ href: '/orion-fimbulwinter/mission-control/', label: '<- MISSION CONTROL' }, { href: '#situation', label: 'SITUATION' }, { href: '#mission', label: 'MISSION' }, { href: '#ground', label: 'GROUND' }, { href: '#execution', label: 'EXECUTION' }, { href: '#roe', label: 'ROE' }, { href: '#support', label: 'SUPPORT' }]} footer="ORION INTERNATIONAL - ZONE-21 // FIMBULWINTER - OP 3: ASHES AND INK - BRIEFING" decryptLines={['ORION SECURE UPLINK - CHANNEL 21', 'AUTHENTICATING OPERATOR...', 'CLEARANCE CONFIRMED - FIELD COMMAND', 'DECRYPTING DOSSIER: OPERATION ASHES AND INK', 'NOTE: CURRENT TASKING ONLY - SUBSEQUENT PHASES WITHHELD']}>
+  <div class="briefing-actions"><button class="print-opord" type="button">PRINT OPORD</button></div>
+  <section id="situation" class="briefing-section"><h1 class="op-name">SITUATION</h1><h2 class="op-title">OPERATION ASHES AND INK</h2><div class="reveal"><p class="reveal decrypt-scroll">The resupply request Orion pushed onto the corps net at Korpiharju did its work. The 44th's logistics desk answered it fast and rolled a convoy toward the grid Orion named. It never reached the killzone - the escort pushed through ahead of schedule, or read the ground and didn't like it, and corps rerouted the column south, onto the secondary forest road behind Ahola.</p><div class="annotated"><p class="reveal decrypt-scroll">The convoy is still carrying its resupply load - ammunition, weapons, medical. Since Korpiharju it has also been folded into a larger corps movement: something to do with everything the 44th pulled out of Ahola after the village fell. <span class="intel-source">[SOURCE: ORION SIGINT - RELIABILITY B-2]</span> <span class="intel-warning">CONTENTS UNCONFIRMED - SEARCH ON SITE</span></p><aside class="margin-note note-a">open the trucks, then report</aside></div><div class="annotated"><p class="reveal decrypt-scroll">The FDF liaison handed Orion the reroute and the timing. The column moves tonight. Miss it on this road and it is gone into the corps rear, past reach. <span class="intel-source">[SOURCE: FDF LIAISON - RELIABILITY B-1]</span></p><aside class="margin-note note-b">one window, tonight</aside></div><p class="reveal decrypt-scroll">The corps QRF is active across this sector and reacts hard to anything that goes quiet in the wrong place. The route back out is long, wooded, and has no good alternatives.</p><p class="reveal decrypt-scroll">A freelance journalist, Nieminen, is still working the region. Orion is still not here officially.</p></div></section>
+  <section id="mission" class="briefing-section"><h2 class="op-name">MISSION</h2><h3 class="op-title">TASKING</h3><div class="intel reveal"><div class="head">FIELD COMMAND DIRECTIVE</div><p class="reveal decrypt-scroll">Orion elements will ambush the 44th's rerouted resupply convoy on the secondary road south of Ahola, break its escort, and strip or destroy its load before the corps QRF can react.</p><p class="reveal decrypt-scroll">Any documents, signals material, or persons found with the column are to be secured intact and held. Subsequent tasking follows in the field, once command knows what the convoy was carrying.</p></div></section>
+  <section id="ground"><h2 class="op-name">GROUND</h2><h3 class="op-title">FIELD NAVIGATION</h3><div class="intel reveal"><div class="head">TERRAIN // SECONDARY ROAD, SOUTH OF AHOLA</div><p class="reveal decrypt-scroll">A stretch of the rerouted secondary road where it runs through forest south of Ahola - a blocking position, support-by-fire onto the road, and an egress west away from the QRF routes. This is the whole of the ground command has released.</p><p class="reveal decrypt-scroll" style="color:var(--dim);font-size:12px;">Tactical overlay to follow once Eden placement is locked. Positions above are directional, not gridded.</p></div></section>
+  <section id="execution" class="briefing-section"><h2 class="op-name">EXECUTION</h2><h3 class="op-title">ORDER OF BATTLE</h3><div><div class="phase climax reveal" id="execution-phase-1" data-phase="1"><label class="phase-check"><input type="checkbox" data-checklist-phase="1" /><span>PHASE COMPLETE</span></label><div class="num">PHASE 1</div><h3>Spring the Ambush</h3><div class="annotated"><p class="reveal decrypt-scroll">Move ahead of the convoy to the killzone on the secondary road. Set the blocking position, mines, and support-by-fire; let the escort commit, then hit it. Break the escort, take what can be carried off the trucks - ammunition, weapons, medical - and destroy the rest on site. The load is a bonus, not the point.</p><aside class="margin-note note-c">nothing burns before it is searched</aside></div><p class="reveal decrypt-scroll">Recover intact anything that is not cargo: paperwork, radios, and anyone riding with the column. A convoy going silent in the wrong place brings the corps QRF down on the route, so be ready to break contact west once the trucks are dealt with - deliberately, not in a rout.</p></div><div class="phase reveal"><div class="num">SUBSEQUENT PHASES</div><h3>Withheld</h3><p class="reveal decrypt-scroll">Command has released the ambush only. What the convoy is found to be carrying decides the rest of the operation, and that tasking comes over the Orion net once the column is stopped and searched. Plan Phase 1 to leave the team able to move and fight afterward - this is not the last thing you do tonight.</p></div><p class="reveal decrypt-scroll" style="color:var(--dim); font-size:12px;">Ground commanders retain discretionary authority over internal task allocation and approach across all phases.</p></div></section>
+  <section id="roe" class="briefing-section"><h2 class="op-name">RULES OF ENGAGEMENT</h2><h3 class="op-title">FIELD RESTRICTIONS</h3><div class="intel reveal"><div class="head">ROE // EFFECTIVE IMMEDIATELY</div><div class="annotated"><ul class="reveal decrypt-scroll"><li>Any 44th Army Corps element observed, in contact, confirmed at a designated objective, or on the convoy is hostile.</li><li>Anyone found riding with the column who is not corps - detainees, prisoners, civilians - is a non-combatant and a recovery objective. Confirm identification before firing into cabs or covered beds.</li><li>Documents, signals material, and the convoy load are recovery objectives, not just targets. Strip what is useful before destroying the remainder. Do not torch the trucks before they are searched.</li><li>Lethal force is authorised against confirmed hostile positions without further clearance. This is a direct-action ambush, not a restrained security posture.</li><li>A journalist, Nieminen - freelance, persistent - is working the region. Orion is not officially present. Do not get photographed.</li><li>Self-defence is authorised at all times without prior command approval.</li></ul><aside class="margin-note note-e">copy that</aside></div></div></section>
+  <section id="support" class="briefing-section"><h2 class="op-name">SUPPORT</h2><h3 class="op-title">AVAILABLE ASSETS</h3><div><div class="phase reveal"><div class="num">COMMS</div><h3>Liaison Then Silence</h3><p class="reveal decrypt-scroll">The FDF liaison hands over the reroute and the timing, then goes quiet - it will not acknowledge Orion on any net. Sector frequencies carry over from Op 2 if the Korpiharju hub take went clean; assume they are stale and confirm in-mission. Subsequent tasking comes over the Orion command net.</p></div><div class="phase reveal"><div class="num">AIR SUPPORT</div><h3>Valkyrie</h3><p class="reveal decrypt-scroll">Valkyrie provides limited CAS and overwatch in this sector on request through mission command. No standing air presence. No dedicated extraction airframe is assigned - plan the egress on the ground.</p></div><div class="phase reveal"><div class="num">GROUND</div><h3>No Dedicated Lift</h3><p class="reveal decrypt-scroll">Orion starts this operation without dedicated transport. Vehicles taken off the convoy may be the team's ride for whatever follows - take that into account before destroying them.</p></div></div></section>
+  <section id="operator-note" class="operator-note reveal" aria-label="Operator's note"><div class="head">OFF-RECORD // FOR THE PERSON WHO READS TO THE END</div><p>Command is giving you one phase tonight. That is not an oversight.</p><p>You lured this convoy out four days ago and it slipped the noose. It has been driving around the corps rear ever since, picking up more than fuel and bullets. Stop it, open it up, and tell command what you are looking at. Then they will tell you where you are going.</p><p>Travel light enough to keep moving. You are not done when the shooting stops.</p></section>
+  <script>
+    const unlockPhase = (phase: string) => {
+      const blip = document.querySelector<HTMLButtonElement>(`.blip[data-phase="${phase}"]`);
+      if (!blip) return;
+      blip.classList.remove('locked');
+      blip.removeAttribute('aria-hidden');
+      blip.removeAttribute('tabindex');
+    };
+    document.querySelectorAll('.blip').forEach((blip) => blip.addEventListener('click', () => {
+      const target = document.querySelector(blip.dataset.target || '');
+      if (!(target instanceof HTMLElement) || blip.classList.contains('locked')) return;
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      target.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'center' });
+      target.classList.remove('flash');
+      void target.offsetWidth;
+      target.classList.add('flash');
+      window.setTimeout(() => target.classList.remove('flash'), 1500);
+    }));
+    const phaseObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting || !(entry.target instanceof HTMLElement)) return;
+        const phase = entry.target.dataset.phase;
+        if (!phase) return;
+        unlockPhase(phase);
+      });
+    }, { threshold: 0.45 });
+    document.querySelectorAll<HTMLElement>('.phase[data-phase]').forEach((phase) => phaseObserver.observe(phase));
+
+    const checklistKey = 'orion-checklist-op3';
+    const completePhases = new Set<number>(JSON.parse(localStorage.getItem(checklistKey) || '[]'));
+    document.querySelectorAll<HTMLInputElement>('[data-checklist-phase]').forEach((input) => {
+      const phase = Number(input.dataset.checklistPhase);
+      input.checked = completePhases.has(phase);
+      input.addEventListener('change', () => {
+        input.checked ? completePhases.add(phase) : completePhases.delete(phase);
+        localStorage.setItem(checklistKey, JSON.stringify([...completePhases]));
+      });
+    });
+
+    document.querySelector('.print-opord')?.addEventListener('click', () => window.print());
+  </script>
+</Layout>

@@ -1,0 +1,56 @@
+---
+import Layout from '../layouts/Layout.astro';
+import '../styles/Briefing.css';
+---
+
+<Layout title="ORION // OP 4: Thin Ice - Briefing" description="Field briefing for Operation Thin Ice - breakout from a captured forward post, Zone-21 Finland." nav={[{ href: '/orion-fimbulwinter/mission-control/', label: '<- MISSION CONTROL' }, { href: '#situation', label: 'SITUATION' }, { href: '#mission', label: 'MISSION' }, { href: '#ground', label: 'GROUND' }, { href: '#execution', label: 'EXECUTION' }, { href: '#roe', label: 'ROE' }, { href: '#support', label: 'SUPPORT' }]} footer="ORION INTERNATIONAL - ZONE-21 // FIMBULWINTER - OP 4: THIN ICE - BRIEFING" decryptLines={['ORION SECURE UPLINK - CHANNEL 21', 'AUTHENTICATING OPERATOR...', 'CLEARANCE CONFIRMED - FIELD COMMAND', 'DECRYPTING DOSSIER: OPERATION THIN ICE']}>
+  <div class="briefing-actions"><button class="print-opord" type="button">PRINT OPORD</button></div>
+  <section id="situation" class="briefing-section"><h1 class="op-name">SITUATION</h1><h2 class="op-title">OPERATION THIN ICE</h2><div class="reveal"><p class="reveal decrypt-scroll">For the past week, Orion has held a small Russian forward post on Corporate's order: shelter in place, hold what there is, do not move.</p><p class="reveal decrypt-scroll">It does not hold anymore. The Russian advance has picked up speed across the sector, and staying in place is no longer viable. Hades platoon has to move.</p><p class="reveal decrypt-scroll">There is no resupply route. What the platoon is still carrying, plus the light stock that came with the post, is not enough to fight through a corps line. Nearby Russian FOBs hold what is needed — ammunition, weapons — and taking it is the only way to re-arm before attempting a breakout.</p><p class="reveal decrypt-scroll">Valkyrie air support can be reached this operation, but only sporadically — on request, not guaranteed.</p></div></section>
+  <section id="mission" class="briefing-section"><h2 class="op-name">MISSION</h2><h3 class="op-title">TASKING</h3><div class="intel reveal"><div class="head">FIELD COMMAND DIRECTIVE</div><p class="reveal decrypt-scroll">Orion elements will conduct night raids against known Russian FOBs to seize weapons and ammunition, then use that matériel to break through the Russian line and reach friendly territory.</p></div></section>
+  <section id="ground"><h2 class="op-name">GROUND</h2><h3 class="op-title">FIELD NAVIGATION</h3><div class="intel reveal"><div class="head">TERRAIN // SECTOR UNSPECIFIED</div><p class="reveal decrypt-scroll">The post Orion currently holds, two Russian forward positions within night movement of it, and the corps rear ground between them and the nearest confirmed friendly line.</p><p class="reveal decrypt-scroll" style="color:var(--dim);font-size:12px;">Exact positions and the breakout point are released to ground command once Eden placement is locked. Positions are directional, not gridded.</p></div></section>
+  <section id="execution" class="briefing-section"><h2 class="op-name">EXECUTION</h2><h3 class="op-title">ORDER OF BATTLE</h3><div><div class="phase reveal" id="execution-phase-1" data-phase="1"><label class="phase-check"><input type="checkbox" data-checklist-phase="1" /><span>PHASE COMPLETE</span></label><div class="num">PHASE 1 / 4</div><h3>First Raid</h3><p class="reveal decrypt-scroll">Hit the nearer, lighter-held FOB at night for its weapons cache. In and out — the objective is the matériel, not the ground.</p></div><div class="phase reveal" id="execution-phase-2" data-phase="2"><label class="phase-check"><input type="checkbox" data-checklist-phase="2" /><span>PHASE COMPLETE</span></label><div class="num">PHASE 2 / 4</div><h3>Second Raid</h3><p class="reveal decrypt-scroll">Hit a second, better-held FOB for what the first raid didn't provide. Expect tighter security — the corps will be alert to the pattern by now.</p></div><div class="phase reveal" id="execution-phase-3" data-phase="3"><label class="phase-check"><input type="checkbox" data-checklist-phase="3" /><span>PHASE COMPLETE</span></label><div class="num">PHASE 3 / 4</div><h3>Break the Line</h3><p class="reveal decrypt-scroll">Abandon the post and move with everything taken in Phases 1 and 2 toward the weakest point in the corps line. Request Valkyrie if reachable; do not plan the breakout around it.</p></div><div class="phase climax reveal" id="execution-phase-4" data-phase="4"><label class="phase-check"><input type="checkbox" data-checklist-phase="4" /><span>PHASE COMPLETE</span></label><div class="num">PHASE 4 / 4</div><h3>Clear</h3><p class="reveal decrypt-scroll">Get past the line and out of pursuit range before standing down. This operation ends at a confirmed friendly position, not at the line itself.</p></div><p class="reveal decrypt-scroll" style="color:var(--dim); font-size:12px;">Ground commanders retain discretionary authority over internal task allocation and approach across all phases.</p></div></section>
+  <section id="roe" class="briefing-section"><h2 class="op-name">RULES OF ENGAGEMENT</h2><h3 class="op-title">FIELD RESTRICTIONS</h3><div class="intel reveal"><div class="head">ROE // EFFECTIVE IMMEDIATELY</div><ul class="reveal decrypt-scroll"><li>Any Russian element, garrison, or patrol observed, in contact, or confirmed at a designated objective is hostile.</li><li>Phases 1 and 2 are raids for matériel, not clearances. Take the cache, avoid unnecessary contact, do not attempt to hold either position.</li><li>The post is to be abandoned as directed in Phase 3. Do not delay the breakout to defend or reoccupy it.</li><li>Lethal force is authorised against confirmed hostile positions without further clearance.</li><li>Self-defence is authorised at all times without prior command approval.</li></ul></div></section>
+  <section id="support" class="briefing-section"><h2 class="op-name">SUPPORT</h2><h3 class="op-title">AVAILABLE ASSETS</h3><div><div class="phase reveal"><div class="num">COMMS</div><h3>No Liaison</h3><p class="reveal decrypt-scroll">No dedicated FDF liaison this operation. Treat incoming sector traffic as unconfirmed until corroborated.</p></div><div class="phase reveal"><div class="num">AIR SUPPORT</div><h3>Valkyrie</h3><p class="reveal decrypt-scroll">Available on request through mission command. Not a standing presence — expect delay or refusal. Do not plan the breakout around it arriving.</p></div><div class="phase reveal"><div class="num">GROUND</div><h3>No Extraction</h3><p class="reveal decrypt-scroll">No extraction is assigned. The breakout is conducted on foot and with whatever vehicles or material are seized during the raids. Orion starts this operation holding the post with only what the platoon carried out of the ambush, plus the light stock already on hand there.</p></div></div></section>
+  <section id="operator-note" class="operator-note reveal" aria-label="Operator's note"><div class="head">OFF-RECORD // FOR THE PERSON WHO READS TO THE END</div><p>A week is a long time to sit still and listen to someone else's war get louder. Command was right to hold you here as long as it did, and right to call it now, before the front does it for you.</p><p>Take only what gets you through the line. Everything else stays in the post.</p></section>
+  <script>
+    const unlockPhase = (phase: string) => {
+      const blip = document.querySelector<HTMLButtonElement>(`.blip[data-phase="${phase}"]`);
+      if (!blip) return;
+      blip.classList.remove('locked');
+      blip.removeAttribute('aria-hidden');
+      blip.removeAttribute('tabindex');
+    };
+    document.querySelectorAll('.blip').forEach((blip) => blip.addEventListener('click', () => {
+      const target = document.querySelector(blip.dataset.target || '');
+      if (!(target instanceof HTMLElement) || blip.classList.contains('locked')) return;
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      target.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'center' });
+      target.classList.remove('flash');
+      void target.offsetWidth;
+      target.classList.add('flash');
+      window.setTimeout(() => target.classList.remove('flash'), 1500);
+    }));
+    const phaseObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting || !(entry.target instanceof HTMLElement)) return;
+        const phase = entry.target.dataset.phase;
+        if (!phase) return;
+        unlockPhase(phase);
+      });
+    }, { threshold: 0.45 });
+    document.querySelectorAll<HTMLElement>('.phase[data-phase]').forEach((phase) => phaseObserver.observe(phase));
+
+    const checklistKey = 'orion-checklist-op4';
+    const completePhases = new Set<number>(JSON.parse(localStorage.getItem(checklistKey) || '[]'));
+    document.querySelectorAll<HTMLInputElement>('[data-checklist-phase]').forEach((input) => {
+      const phase = Number(input.dataset.checklistPhase);
+      input.checked = completePhases.has(phase);
+      input.addEventListener('change', () => {
+        input.checked ? completePhases.add(phase) : completePhases.delete(phase);
+        localStorage.setItem(checklistKey, JSON.stringify([...completePhases]));
+      });
+    });
+
+    document.querySelector('.print-opord')?.addEventListener('click', () => window.print());
+  </script>
+</Layout>

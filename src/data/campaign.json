@@ -41,10 +41,10 @@
   },
   {
     "id": 5,
-    "title": "CLASSIFIED",
-    "status": "PENDING - clearance follows Op 4",
-    "briefingUrl": "",
-    "unlocked": false,
+    "title": "Hollow March",
+    "status": "NOT YET PLAYED - briefing ready",
+    "briefingUrl": "/orion-fimbulwinter/briefing-op5/",
+    "unlocked": true,
     "mapX": 52,
     "mapY": 78,
     "aar": null

@@ -51,10 +51,10 @@
   },
   {
     "id": 6,
-    "title": "CLASSIFIED",
-    "status": "PENDING - clearance follows Op 5",
-    "briefingUrl": "",
-    "unlocked": false,
+    "title": "Black Ice",
+    "status": "NOT YET PLAYED - briefing ready",
+    "briefingUrl": "/orion-fimbulwinter/briefing-op6/",
+    "unlocked": true,
     "mapX": 82,
     "mapY": 25,
     "aar": null
